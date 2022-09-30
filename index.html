@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>My Anime Ratings</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <script src="./src/controllers/anime-ratings.controller.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="headerBar dark">
+        <div class="appName">My Anime Ratings</div>
+        <div class="badge warning"><span id="estado">0</span></div>
+    </header>
+
+    <div id="home-screen" class="component">
+        <div class="componentHeader">
+            <h1 class="componentTitle">My list</h1>
+            <div class="adcBtnComponent">
+                <button id="btnAdic" class="button primary btn-header">
+                    <img src="./assets/plus1.png" />
+                </button>
+            </div>
+            <div class="sortBtnComponent">
+                <button id="btnSort" class="button primary btn-header">
+                    <img src="./assets/sort.png" />
+                </button>
+            </div>
+            <div class="searchComponent hidden">
+                <label for="inputSearch">Title:</label>
+                <input id="inputSearch" type="text" autocomplete="off" />
+            </div>
+            <div class="filterBtnComponent">
+                <button id="btnFilter" class="button primary btn-header">
+                    <img src="./assets/filter.png" />
+                </button>
+            </div>
+            <div class="searchBtnComponent hidden">
+                <button id="btnSearch" class="button primary btn-header">
+                    <img src="./assets/search.png" />
+                </button>
+            </div>
+        </div>
+        <div class="componentContent componentGrid">
+            <div id="blank">
+                <img src="./assets/luffy-disapointed.png" />
+                <p id="emptyPhrase">Nothing found.</p>
+            </div>
+            <section>
+                <h3 id="animeRankigListTitle">Name</h3>
+                <ul id="animeRankigList" class="list hidden"></ul>
+            </section>
+            <section>
+                <h3 id="animeRankigList2Title">Rating</h3>
+                <ul id="animeRankigList2" class="list hidden"></ul>
+            </section>
+        </div>
+    </div>
+
+    <div id="registration-screen" class="component hidden">
+        <div class="componentHeader">
+            <h1 class="componentTitle">
+                New anime
+            </h1>
+        </div>
+        <div class="componentContent">
+            <div class="field">
+                <label for="inputNewAnime">Title:</label>
+                <input id="inputNewAnime" type="text" autocomplete="off" />
+            </div>
+            <div class="field">
+                <label>Rating:</label>
+
+                <div class="star-wrapper">
+                    <span class="fa fa-star s1" onclick="checkStars(1)"></span>
+                    <span class="fa fa-star s2" onclick="checkStars(2)"></span>
+                    <span class="fa fa-star s3" onclick="checkStars(3)"></span>
+                    <span class="fa fa-star s4" onclick="checkStars(4)"></span>
+                    <span class="fa fa-star s5" onclick="checkStars(5)"></span>
+                </div>
+            </div>
+            <div class="buttonGroup mt1 end">
+                <button id="btnCanc1" class="button quarter light">Cancel</button>
+                <button id="btnInc" class="button quarter primary" onclick="addAnime()" disabled>
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="update-screen" class="component hidden">
+        <div class="componentHeader">
+            <h1 class="componentTitle">Anime Rating Change</h1>
+        </div>
+        <div class="componentContent">
+            <div class="field">
+                <label for="inputUpdateRating">Title:</label>
+                <input id="inputUpdateRating" type="text" autocomplete="off" />
+            </div>
+            <div class="field">
+                <label>Rating:</label>
+
+                <div class="star-wrapper">
+                    <span class="fa fa-star s1" onclick="checkStars(6)"></span>
+                    <span class="fa fa-star s2" onclick="checkStars(7)"></span>
+                    <span class="fa fa-star s3" onclick="checkStars(8)"></span>
+                    <span class="fa fa-star s4" onclick="checkStars(9)"></span>
+                    <span class="fa fa-star s5" onclick="checkStars(10)"></span>
+                </div>
+            </div>
+            <div class="buttonGroup end mt1">
+                <button id="btnCanc2" class="button quarter light">Cancel</button>
+                <button id="btnAlt" class="button quarter primary" onclick="updateAnimeRating();">Alterar</button>
+            </div>
+            <div class="buttonGroup end mt3">
+                <button id="btnDel" class="button quarter danger" onclick="removeAnimeRating()">
+                    Remove rating
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
